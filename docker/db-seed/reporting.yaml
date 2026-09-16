@@ -26,6 +26,7 @@ tree:
   individual_land:               {parent: individual}
   individual_livestock:          {parent: individual}
   individual_program:            {parent: individual}
+  individual_stipend_program:    {parent: individual}
   individual_shock:              {parent: individual}
   household_housing_and_service: {parent: household}
   household_program:             {parent: household}
@@ -50,6 +51,7 @@ pii:
     # programme, and "how many households are enrolled in which programme" is
     # most of what this registry is asked.
     - program_name
+    - stipend_program_name
     # The KIND of handset (basic / smart / none), not a number. It matches the
     # `phone` pattern and carries no contact detail at all — it is a proxy for
     # digital access, which is a genuine vulnerability indicator.
@@ -73,6 +75,8 @@ inherit:
   individual_shock:
     individual: [household_id, gender, is_female, age_band]
   individual_program:
+    individual: [household_id, gender, is_female, age_band]
+  individual_stipend_program:
     individual: [household_id, gender, is_female, age_band]
 
 # Materialized, with the columns their charts group by.

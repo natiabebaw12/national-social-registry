@@ -294,3 +294,16 @@ class ProgramEnum(str, enum.Enum):
     PROG_PUBLIC_WORKS = "PROG_PUBLIC_WORKS"
     UPSNP = "UPSNP"
     RPSNP = "RPSNP"
+
+class StipendProgramEnum(str, enum.Enum):
+    """Matches stipend program ``value_id`` rows in ``g2p_attribute_values``."""
+    STIPEND_EDUCATION = "STIPEND_EDUCATION"
+    STIPEND_TRAINING = "STIPEND_TRAINING"
+    STIPEND_INTERNSHIP = "STIPEND_INTERNSHIP"
+    STIPEND_RESEARCH = "STIPEND_RESEARCH"
+    STIPEND_SOCIAL_PROTECTION = "STIPEND_SOCIAL_PROTECTION"
+
+class WorkTypeEnum(str, enum.Enum):
+    """Matches work type ``value_id`` rows in ``g2p_attribute_values``."""
+    FULL_TIME = "FULL_TIME"
+    PART_TIME = "PART_TIME"

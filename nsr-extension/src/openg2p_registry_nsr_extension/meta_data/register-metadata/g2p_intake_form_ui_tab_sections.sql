@@ -6,6 +6,7 @@ INSERT INTO "public"."g2p_intake_form_ui_tab_sections" ("tab_section_id","tab_id
 ('9b6e1d20-428f-435c-af10-fa9240114586','nsr_form_tab_individual_intake','in_table_livestock',11),
 ('6a8ed231-d6b8-439b-a91e-06a777bee812','nsr_form_tab_individual_intake','in_location_details',12),
 ('d84ee82c-9129-4c2a-b719-7ee3675ca83d','nsr_form_tab_individual_intake','in_table_program_enrolments',13),
+('e1a2b3c4-d5e6-4f70-8901-234567890abc','nsr_form_tab_individual_intake','in_table_stipend_programs',18),
 ('db30b024-af5a-48a0-bcf1-51b9de4cc9c6','nsr_form_tab_individual_intake','in_table_shocks',14),
 ('842381f2-cbd4-4128-b269-1d085c2db572','nsr_form_tab_individual_intake','in_livelihood_employment',15),
 ('f8bd2e73-7358-48b4-b81b-330936d5ae0d','nsr_form_tab_individual_intake','in_relationship_to_head',16),

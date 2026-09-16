@@ -13,6 +13,7 @@ INSERT INTO "public"."g2p_register_ui_tab_sections" ("tab_section_id","register_
 ('f0000000-0000-4000-8000-000000000321','a0000000-0000-4000-8000-000000000001','individual_vulnerability_tab','in_vulnerability_inclusion',10),
 ('f0000000-0000-4000-8000-000000000322','a0000000-0000-4000-8000-000000000001','individual_vulnerability_tab','in_table_disabilities',20),
 ('f0000000-0000-4000-8000-000000000331','a0000000-0000-4000-8000-000000000001','individual_programs_tab','in_table_program_enrolments',10),
+('f0000000-0000-4000-8000-000000000332','a0000000-0000-4000-8000-000000000001','individual_programs_tab','in_table_stipend_programs',20),
 ('f0000000-0000-4000-8000-000000000341','a0000000-0000-4000-8000-000000000002','household_info_tab','hh_header_info',10),
 ('f0000000-0000-4000-8000-000000000342','a0000000-0000-4000-8000-000000000002','household_info_tab','hh_location_details',20),
 ('f0000000-0000-4000-8000-000000000343','a0000000-0000-4000-8000-000000000002','household_info_tab','hh_composition_headship',30),

@@ -6,6 +6,9 @@ from .g2p_register_domain_service_household import G2PRegisterDomainServiceHouse
 from .g2p_register_domain_service_individual_program import (
     G2PRegisterDomainServiceIndividualProgram,
 )
+from .g2p_register_domain_service_individual_stipend_program import (
+    G2PRegisterDomainServiceIndividualStipendProgram,
+)
 from .g2p_register_domain_service_household_program import (
     G2PRegisterDomainServiceHouseholdProgram,
 )
