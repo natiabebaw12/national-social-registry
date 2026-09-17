@@ -297,11 +297,10 @@ class ProgramEnum(str, enum.Enum):
 
 class StipendProgramEnum(str, enum.Enum):
     """Matches stipend program ``value_id`` rows in ``g2p_attribute_values``."""
-    STIPEND_EDUCATION = "STIPEND_EDUCATION"
-    STIPEND_TRAINING = "STIPEND_TRAINING"
-    STIPEND_INTERNSHIP = "STIPEND_INTERNSHIP"
-    STIPEND_RESEARCH = "STIPEND_RESEARCH"
-    STIPEND_SOCIAL_PROTECTION = "STIPEND_SOCIAL_PROTECTION"
+    STIPEND_CLEANING = "STIPEND_CLEANING"
+    STIPEND_MAINTENANCE = "STIPEND_MAINTENANCE"
+    STIPEND_FOOD_GARDENS = "STIPEND_FOOD_GARDENS"
+    STIPEND_SOCIAL_SERVICES = "STIPEND_SOCIAL_SERVICES"
 
 class WorkTypeEnum(str, enum.Enum):
     """Matches work type ``value_id`` rows in ``g2p_attribute_values``."""
