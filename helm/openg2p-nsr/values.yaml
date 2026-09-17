@@ -120,7 +120,7 @@ registry:
     enabled: true
     image:
       repository: openg2p/openg2p-nsr-sanity-tests
-      tag: 0.0.0-develop
+      tag: 0.0.0-stipend-program.244
     # functional_record_id of the injected sanity record (see
     # test/sanity/sanity/fixtures.py).
     searchText: SANITY-INDIVIDUAL-0001
