@@ -51,23 +51,23 @@ registry:
   staffApi:
     image:
       repository: openg2p/openg2p-nsr-staff-api
-      tag: 0.0.0-stipend-program.244
+      tag: 0.0.0-stipend-program.251
   partnerApi:
     image:
       repository: openg2p/openg2p-nsr-partner-api
-      tag: 0.0.0-stipend-program.244
+      tag: 0.0.0-stipend-program.251
   celeryWorker:
     image:
       repository: openg2p/openg2p-nsr-celery
-      tag: 0.0.0-stipend-program.244
+      tag: 0.0.0-stipend-program.251
   celeryBeat:
     image:
       repository: openg2p/openg2p-nsr-celery
-      tag: 0.0.0-stipend-program.244
+      tag: 0.0.0-stipend-program.251
   dbSeed:
     image:
       repository: openg2p/openg2p-nsr-db-seed
-      tag: 0.0.0-stipend-program.244
+      tag: 0.0.0-stipend-program.251
     # The subchart defaults these OFF (minimal reference registry). NSR ships
     # demo records/geo/images, so turn the db-seed loaders on. NB these are
     # `dbSeed.*`, not `global.*` — the db-seed Job reads .Values.dbSeed.load*
@@ -76,15 +76,15 @@ registry:
     # not as a side effect of the registry seed. Leaving this on would load a
     # second, unrelated hierarchy over the one MDS already holds.
     loadGeoData: false
-    loadSampleData: true
-    loadImages: true
+    loadSampleData: false
+    loadImages: false
     loadTemplates: true
     # Copy the country's code lists from Master Data, and match the geo dropdowns
     # to the hierarchy it holds. Both are country-agnostic: they take whatever
     # pack this environment loaded, and no-op when Master Data carries neither.
     # This is what lets one NSR image serve any country.
-    loadAttributes: true
-    syncGeoWidgets: true
+    loadAttributes: false
+    syncGeoWidgets: false
 
   # staffUi and beneApi are consumed as-is from the openg2p-registry base images
   # (subchart defaults already point at openg2p/openg2p-registry-*), so they are
@@ -120,7 +120,7 @@ registry:
     enabled: true
     image:
       repository: openg2p/openg2p-nsr-sanity-tests
-      tag: 0.0.0-stipend-program.244
+      tag: 0.0.0-stipend-program.251
     # functional_record_id of the injected sanity record (see
     # test/sanity/sanity/fixtures.py).
     searchText: SANITY-INDIVIDUAL-0001
