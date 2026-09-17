@@ -1,6 +1,6 @@
 from datetime import date
 
-from sqlalchemy import Date, Integer, Numeric, String
+from sqlalchemy import Date, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from openg2p_registry_core.models import G2PRegister, G2PRegisterHistory

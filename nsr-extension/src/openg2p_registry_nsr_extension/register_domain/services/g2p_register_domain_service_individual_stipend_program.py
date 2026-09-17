@@ -1,9 +1,12 @@
 import logging
 
+from openg2p_registry_core.models import G2PRegisterChangeRequest
+from openg2p_registry_core.models.enum import ChangeActionEnum
 from openg2p_registry_core.services import G2PRegisterDomainService
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm.attributes import flag_modified
 
 from .utils.validations import (
-    as_float,
     as_int,
     ensure_end_on_or_after_start,
     has_keys,
@@ -12,6 +15,11 @@ from .utils.validations import (
 )
 
 _logger = logging.getLogger("g2p-register-individualstipendprogram-service")
+
+_SKIP_RANGE_ACTIONS = {
+    ChangeActionEnum.NO_CHANGE.value,
+    ChangeActionEnum.DELETE.value,
+}
 
 
 class G2PRegisterDomainServiceIndividualStipendProgram(G2PRegisterDomainService):
@@ -29,9 +37,66 @@ class G2PRegisterDomainServiceIndividualStipendProgram(G2PRegisterDomainService)
                 if hours is not None and hours < 0:
                     validation_error("hours_contributed must not be negative")
             if has_keys(record, "contribution_date_range"):
-                spent = as_int(record.get("contribution_date_range"))
+                date_range = as_int(record.get("contribution_date_range"))
                 if date_range is not None and date_range < 0:
                     validation_error("contribution_date_range must not be negative")
+
+    async def pre_approve(self, change_request: G2PRegisterChangeRequest, session: AsyncSession):
+        from openg2p_registry_core.models import G2PRegisterChangeRequestPayload
+        from ..models.individual_stipend_program import G2PRegisterIndividualStipendProgram
+
+        payload_obj = await session.get(
+            G2PRegisterChangeRequestPayload, change_request.change_request_id
+        )
+        if not payload_obj or not payload_obj.change_payload:
+            return
+
+        payload_changed = False
+        for record in payload_obj.change_payload:
+            if record.get("edit_action") in _SKIP_RANGE_ACTIONS:
+                continue
+
+            from_date = record.get("contribution_from_date")
+            to_date = record.get("contribution_to_date")
+            if record.get("edit_action") == ChangeActionEnum.UPDATE.value:
+                existing = await session.get(
+                    G2PRegisterIndividualStipendProgram,
+                    record.get("internal_record_id"),
+                )
+                if existing:
+                    if "contribution_from_date" not in record:
+                        from_date = existing.contribution_from_date
+                    if "contribution_to_date" not in record:
+                        to_date = existing.contribution_to_date
+
+            date_range = self._compute_contribution_date_range(from_date, to_date)
+            if date_range is None:
+                continue
+            if record.get("contribution_date_range") != date_range:
+                record["contribution_date_range"] = date_range
+                payload_changed = True
+
+        if payload_changed:
+            flag_modified(payload_obj, "change_payload")
+            session.add(payload_obj)
+
+    async def post_ingest(self, register_id: str, register_row, session: AsyncSession):
+        date_range = self._compute_contribution_date_range(
+            getattr(register_row, "contribution_from_date", None),
+            getattr(register_row, "contribution_to_date", None),
+        )
+        if date_range is None:
+            return
+        register_row.contribution_date_range = date_range
+        session.add(register_row)
+
+    @staticmethod
+    def _compute_contribution_date_range(from_value, to_value) -> int | None:
+        start = parse_date(from_value)
+        end = parse_date(to_value)
+        if start is None or end is None:
+            return None
+        return (end.year - start.year) * 12 + (end.month - start.month) + 1
 
     def construct_search_text(self, payload: dict, extra: list[str] = None) -> str:
         _logger.info("Constructing search text for individual stipend program")

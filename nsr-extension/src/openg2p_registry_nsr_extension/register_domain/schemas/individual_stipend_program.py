@@ -23,7 +23,7 @@ class G2PRegisterSchemaIndividualStipendProgram(
 ):
     """
     Schema for Project Social Contribution (stipend program) rows.
-    Month/year is a from–to range; total_spent is the ministry spend on that period.
+    Month/year is a from–to range.
     """
 
 
@@ -39,4 +39,4 @@ class G2PRegisterHistorySchemaIndividualStipendProgram(G2PRegisterHistorySchema)
     hours_contributed: Optional[int] = None
     contribution_from_date: Optional[date] = None
     contribution_to_date: Optional[date] = None
-    total_spent: Optional[float] = None
+    contribution_date_range: Optional[int] = None
