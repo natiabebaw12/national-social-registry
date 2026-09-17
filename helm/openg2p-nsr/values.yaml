@@ -51,23 +51,23 @@ registry:
   staffApi:
     image:
       repository: openg2p/openg2p-nsr-staff-api
-      tag: 0.0.0-develop
+      tag: 0.0.0-stipend-program.244
   partnerApi:
     image:
       repository: openg2p/openg2p-nsr-partner-api
-      tag: 0.0.0-develop
+      tag: 0.0.0-stipend-program.244
   celeryWorker:
     image:
       repository: openg2p/openg2p-nsr-celery
-      tag: 0.0.0-develop
+      tag: 0.0.0-stipend-program.244
   celeryBeat:
     image:
       repository: openg2p/openg2p-nsr-celery
-      tag: 0.0.0-develop
+      tag: 0.0.0-stipend-program.244
   dbSeed:
     image:
       repository: openg2p/openg2p-nsr-db-seed
-      tag: 0.0.0-develop
+      tag: 0.0.0-stipend-program.244
     # The subchart defaults these OFF (minimal reference registry). NSR ships
     # demo records/geo/images, so turn the db-seed loaders on. NB these are
     # `dbSeed.*`, not `global.*` — the db-seed Job reads .Values.dbSeed.load*
