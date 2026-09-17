@@ -18,6 +18,11 @@ from .individual_program import (
     G2PRegisterHistoryIndividualProgram,
     G2PIntakeFormIndividualProgram,
 )
+from .individual_stipend_program import (
+    G2PRegisterIndividualStipendProgram,
+    G2PRegisterHistoryIndividualStipendProgram,
+    G2PIntakeFormIndividualStipendProgram,
+)
 from .household_program import (
     G2PRegisterHouseholdProgram,
     G2PRegisterHistoryHouseholdProgram,
@@ -82,6 +87,7 @@ from .enums import (
     ProductiveAssetEnum,
     ProgramEnum,
     RelationshipToHeadEnum,
+    StipendProgramEnum,
     RoofMaterialEnum,
     ResidencyStatusEnum,
     SanitationTypeEnum,
@@ -90,4 +96,5 @@ from .enums import (
     WallMaterialEnum,
     VerificationStatusEnum,
     WaterSourceTypeEnum,
+    WorkTypeEnum,
 )

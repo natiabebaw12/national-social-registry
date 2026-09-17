@@ -29,7 +29,7 @@ def parse_date(value) -> date | None:
             return datetime.fromisoformat(value.replace("Z", "+00:00")).date()
         except ValueError:
             pass
-        for fmt in ("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d"):
+        for fmt in ("%Y-%m-%d", "%Y-%m", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d"):
             try:
                 return datetime.strptime(value, fmt).date()
             except ValueError:

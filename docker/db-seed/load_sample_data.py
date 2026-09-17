@@ -733,6 +733,18 @@ SUB_TABLES = [
         ["program_name", "program_start_date", "program_exit_date"],
     ),
     (
+        "g2p_register_individual_stipend_programs",
+        "individual_stipend_programs.json",
+        [
+            "stipend_program_name",
+            "work_type",
+            "hours_contributed",
+            "contribution_from_date",
+            "contribution_to_date",
+            "contribution_date_range",
+        ],
+    ),
+    (
         "g2p_register_household_assets",
         "household_assets.json",
         ["asset_type", "asset_category", "quantity", "size_value", "size_unit", "size_band", "details"],

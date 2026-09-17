@@ -18,6 +18,11 @@ from .individual_program import (
     G2PRegisterHistorySchemaIndividualProgram,
     G2PIntakeFormSchemaIndividualProgram,
 )
+from .individual_stipend_program import (
+    G2PRegisterSchemaIndividualStipendProgram,
+    G2PRegisterHistorySchemaIndividualStipendProgram,
+    G2PIntakeFormSchemaIndividualStipendProgram,
+)
 from .household_program import (
     G2PRegisterSchemaHouseholdProgram,
     G2PRegisterHistorySchemaHouseholdProgram,

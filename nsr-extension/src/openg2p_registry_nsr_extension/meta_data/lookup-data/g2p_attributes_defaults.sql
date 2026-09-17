@@ -33,5 +33,7 @@ INSERT INTO "public"."g2p_attributes" ("attribute_id","attribute_code","attribut
 ('SANITATION_TYPE','SANITATION_TYPE','Sanitation Type','FALSE'),
 ('TENURE_STATUS','TENURE_STATUS','Tenure Status','FALSE'),
 ('WALL_MATERIAL','WALL_MATERIAL','Wall Material','FALSE'),
-('WATER_SOURCE_TYPE','WATER_SOURCE_TYPE','Water Source Type','FALSE')
+('WATER_SOURCE_TYPE','WATER_SOURCE_TYPE','Water Source Type','FALSE'),
+('STIPEND_PROGRAM','STIPEND_PROGRAM','Stipend Program','FALSE'),
+('WORK_TYPE','WORK_TYPE','Work Type','FALSE')
 ON CONFLICT (attribute_id) DO NOTHING;
